@@ -4,6 +4,10 @@ import com.example.CodeJam.DiagnosisApi.SymptomsList;
 import com.example.CodeJam.models.diagnosis.Symptom;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import java.util.List;
 
@@ -84,6 +88,18 @@ public class CodeJamApplication {
 //	         } //end finally try
 //	      } //end try
 //	      System.out.println("Goodbye!");
+	}
+	
+	@Bean
+	@SuppressWarnings("deprecation")
+	public WebMvcConfigurer corsConfigurer() {
+	    return new WebMvcConfigurerAdapter() {
+	        @Override
+	        public void addCorsMappings(CorsRegistry registry) {
+	        	
+	        	registry.addMapping("/**");
+	        }
+	    };
 	}
 
 }
