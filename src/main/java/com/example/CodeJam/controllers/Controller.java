@@ -1,4 +1,4 @@
-package com.example.CodeJam;
+package com.example.CodeJam.controllers;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
