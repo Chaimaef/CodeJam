@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: #3b3c3d;
 }
 
 .App-logo {
@@ -20,3 +21,24 @@
 .App-link {
   color: #09d3ac;
 }
+
+
+.wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#choices{
+  height: 60px;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 300px;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
