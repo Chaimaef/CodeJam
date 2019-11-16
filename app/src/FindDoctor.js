@@ -43,7 +43,7 @@ class FindDoctor extends Component {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(item),
+        
       });
       this.props.history.push('/find');
     }

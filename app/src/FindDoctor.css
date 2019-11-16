@@ -1,0 +1,49 @@
+#confirm{
+    display: inline-block;
+    justify-content: center;
+    align-content: space-around;
+   
+}
+
+
+  #name{
+    width: 98%;
+    padding: 12px 20px;
+    margin-left: 16px;
+    box-sizing: border-box; 
+  }
+
+  #city{
+    width: 98%;
+        padding: 12px 20px;
+    margin-left: 16px;
+    box-sizing: border-box; 
+  }
+
+  #state{
+    width: 98%;
+    padding: 12px 20px;
+    margin-left: 16px;
+    box-sizing: border-box; 
+  }
+
+  #address{
+    width: 98%;
+    padding: 12px 20px;
+    margin-left: 16px;
+    box-sizing: border-box; 
+  }
+
+  #postalCode{
+    width: 98%;
+    padding: 12px 20px;
+    margin-left: 16px;
+    box-sizing: border-box; 
+  }
+
+  #symptoms{
+    width: 98%;
+    padding: 12px 20px;
+    margin-left: 16px;
+    box-sizing: border-box; 
+  }
