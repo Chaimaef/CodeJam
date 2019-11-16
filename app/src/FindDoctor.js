@@ -35,6 +35,20 @@ class FindDoctor extends Component {
     this.setState({item});
   }
 
+
+  async getSymptoms (event){
+    await fetch('localhost:8080/api/symptoms', {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        
+      });
+      this.props.history.push('/find');
+    }
+  
+
 //   async handleSubmit(event) {
 //     event.preventDefault();
 //     const {item} = this.state;
