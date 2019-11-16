@@ -3,11 +3,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/api")
 public class Controller {
 
-	@RequestMapping(value = "/")
-	public String Hello() {
-		return "Hello World";
+	@RequestMapping(value = "/hello")
+	public String [] Hello() {
+		String [] arr =   {"Hello World"};
+		return arr;
 	}
-
 }

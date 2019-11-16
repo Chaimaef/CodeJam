@@ -1,18 +1,42 @@
-import React from 'react';
+import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import AppNavBar from './AppNavBar';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-function App() {
+
+class App extends Component {
+  state = {
+    isLoading: true,
+    hello: ""
+  };
+
+  async componentDidMount() {
+    const response = await fetch('/api/hello');
+    const body = await response.json();
+    this.setState({ hello: body, isLoading: false });
+  }
+
+  render() {
+    const {hello, isLoading} = this.state;
+
+    if (isLoading) {
+      return <p>Loading...</p>;
+    }
+
   return (
-    <div className="App">
+    <Router>
+    <div>
+      <AppNavBar/>
+     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Hello World
-        </p>
+        {hello}
       </header>
     </div>
+    </div>
+    </Router>
   );
+ }
 }
 
 export default App;
