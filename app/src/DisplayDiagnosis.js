@@ -49,15 +49,36 @@ class DisplayDiagnosis extends Component {
                 <div>
                     <AppNavBar />
                 </div>
-                <body>
+                <body id="displayBody">
                     <div>
-                        {diagnosis !== null ?
-                            (<div> {diagnosis.map(symtpom =>
-                                <div>
-                                    {symtpom}
+                    <div>
+                                    <br></br>
                                 </div>
-                            )}
+                        <h4 align='center'>According to your symptoms, these are the possible diagnosises, ranked in increasing likelihood:</h4>
+                        <br></br>
+                        {diagnosis !== null ?
+                            (<div> {
+                                diagnosis.map(symtpom =>
+
+                                    <div class = "marginized">
+                                        {symtpom.length > 20 ?
+                                            (<div>
+                                                <p>{symtpom}</p>
+                                                <p></p>
+                                            </div>
+                                            ) : (<b>{symtpom}</b>)
+                                        }
+                                    </div>
+                                )}
+
                                 <div>
+                                    <br></br>
+                                    <br></br>
+                                </div>
+                                <div>
+                                    <div align='center'>
+                                        <b >To find a doctor for your most likely diagnosis, select Find a doctor for this diagnosis </b>
+                                    </div>
                                     <Link to={{
                                         pathname: '/find',
                                         state: { diagnosis: diagnosis }

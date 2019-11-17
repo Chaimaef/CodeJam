@@ -32,13 +32,11 @@ class App extends Component {
         <Router>
           <AppNavBar />
         </Router>
-          <div className="App">
-            <body>
+          <div className="App" id="here">
               <Container className="wrapper">
                 <Link to='/find'><button type="button" id="choices" className="btn btn-secondary btn-lg">Find a doctor</button></Link>
                 <Link to='/diagnosis'><button type="button" id="choices" className="btn btn-secondary btn-lg" >Get a diagnosis</button></Link>
               </Container>
-            </body>
         </div>
       </div>
     );

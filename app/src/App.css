@@ -1,6 +1,15 @@
+html{
+  background-color: #e6ecf0;
+}
 .App {
   text-align: center;
-  background-color: #3b3c3d;
+  background-color: #a7b9cf;
+}
+
+#here{
+  background-color: #e6ecf0;
+  height: 100%;
+  width: 100%;
 }
 
 .App-logo {
@@ -8,7 +17,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #9fa2a6;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -19,7 +28,7 @@
 }
 
 .App-link {
-  color: #09d3ac;
+  color: white;
 }
 
 
@@ -29,6 +38,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #e6ecf0;
 }
 
 #choices{
@@ -40,4 +50,5 @@
   margin-top: 300px;
   margin-left: 25px;
   margin-right: 25px;
+  background-color: #9fa2a6;
 }

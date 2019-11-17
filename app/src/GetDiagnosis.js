@@ -80,7 +80,7 @@ class GetDiagnosis extends Component {
                     <div>
                         <AppNavBar />
                     </div>
-             <Form onSubmit={this.handleSubmit}>
+             <Form onSubmit={this.handleSubmit} id="diagnosisForm">
                 <div>
                     {symptoms !== null ?
                         (<div> {symptoms.map(symptom =>
@@ -98,7 +98,7 @@ class GetDiagnosis extends Component {
 
                 <FormGroup  >
                     <div id="confirm">
-                        <Button color="primary" type="submit" id="buttons">Submit</Button>{' '}
+                        <Button color="secondary" type="submit" id="buttons">Submit</Button>{' '}
                         <Button color="secondary" tag={Link} to="/" id="buttons">Cancel</Button>
                     </div>
                 </FormGroup>

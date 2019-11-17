@@ -12,4 +12,6 @@ table, th, td {
     vertical-align: bottom;
   }
 
-  
+  #displayBody{
+    background-color: #e6ecf0;
+  }

@@ -103,7 +103,7 @@ class FindDoctor extends Component {
                 <AppNavBar />
                 <div>
                     <body>
-                        <Form onSubmit={this.handleSubmit}>
+                        <Form onSubmit={this.handleSubmit} id = "form">
                             <FormGroup>
                                 <Label for="name">Name</Label>
                                 <Input type="text" name="name" id="name" value={item.name || ''}
@@ -142,7 +142,7 @@ class FindDoctor extends Component {
 
                             <FormGroup  >
                                 <div id="confirm">
-                                    <Button color="primary" type="submit" id="buttons">Submit</Button>{' '}
+                                    <Button color="secondary" type="submit" id="buttons">Submit</Button>{' '}
                                     <Button color="secondary" tag={Link} to="/" id="buttons">Cancel</Button>
                                 </div>
                             </FormGroup>

@@ -36,7 +36,7 @@ class DisplayDoctors extends Component {
                 <div>
                     <AppNavBar />
                 </div>
-                <body>
+                <body id="displayBody">
                     <div>
 
                         {doctors !== null ?

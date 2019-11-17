@@ -17,17 +17,19 @@ class AppNavBar extends Component {
   }
 
   render() {
-    return <Navbar color="dark" dark expand="md">
-      <NavbarBrand tag={Link} to="/">Home</NavbarBrand>
+    const navbar = {backgroundColor: '#9fa2a6'};
+    const link = {color : "#FFFFFF"};
+    return <Navbar style={navbar} expand="md">
+      <NavbarBrand style={link} tag={Link} to="/">Home</NavbarBrand>
       <NavbarToggler onClick={this.toggle}/>
       <Collapse isOpen={this.state.isOpen} navbar>
         <Nav className="ml-auto" navbar>
           <NavItem>
-            <NavLink
+            <NavLink style={link}
               href="https://twitter.com/oktadev">@oktadev</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="https://github.com/oktadeveloper/okta-spring-boot-react-crud-example">GitHub</NavLink>
+            <NavLink style={link} href="https://github.com/oktadeveloper/okta-spring-boot-react-crud-example">GitHub</NavLink>
           </NavItem>
         </Nav>
       </Collapse>
