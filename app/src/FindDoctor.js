@@ -1,40 +1,12 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch, withRouter, Link } from 'react-router-dom';
-import { Button, Container, Form, FormGroup, Input, Label } from 'reactstrap';
+import { BrowserRouter as Router, withRouter, Link, Redirect } from 'react-router-dom';
+import { Button, Form, FormGroup, Input, Label } from 'reactstrap';
 import AppNavBar from './AppNavBar';
 import './FindDoctor.css';
-import { empty } from 'rxjs';
-import { throwStatement } from '@babel/types';
 
 
 class FindDoctor extends Component {
 
-    // getSymptoms() {
-    //     const response = fetch('http://localhost:8080/api/symptoms')
-    //         // .then(response =>  {
-    //         // console.log(response.json());
-    //         //const body = response.json();
-    //         .then(response => response.json())
-    //         .then(response => {
-    //             this.setState ({item: {
-    //                 name: '',
-    //                 address: '',
-    //                 city: '',
-    //                 state: '',
-    //                 country: '',
-    //                 postalCode: '',
-    //                 speciality: ''
-    //             } , data: response});
-    //             this.render();
-    //         })
-    //         .catch(err => {
-    //             console.log(err);
-    //             // throw new Error(err)
-    //         })
-    // }
-
-
-   
 
 
     constructor(props) {
@@ -48,11 +20,22 @@ class FindDoctor extends Component {
                 country: '',
                 postalCode: '',
                 speciality: ''
-            }
+            },
+            redirect: false
         };
         this.handleChange = this.handleChange.bind(this);
-
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
+
+
+
+    async handleSubmit(event) {
+        event.preventDefault();
+        const { item } = this.state;
+                this.setState({ item: item, redirect: true })
+           
+    }
+
 
 
     handleChange(event) {
@@ -61,21 +44,31 @@ class FindDoctor extends Component {
         const name = target.name;
         let item = { ...this.state.item };
         item[name] = value;
-        this.setState({ item });
+        this.setState({ item : item, redirect: false});
     }
 
     render() {
-        const { item, data } = this.state;
-        console.log(data);
+        const { item, redirect } = this.state;
+
+        if (redirect) {
+            return <Redirect to={{
+                pathname: '/display',
+                state: { id: item }
+            }}
+            />;
+          }
+
+          this.state.redirect=false;
+
+
         return (
             <div>
                 <Router>
-                    <AppNavBar/>
+                    <AppNavBar />
                 </Router>
                 <div>
                     <body>
-                        {/* <Form onSubmit={this.handleSubmit}> */}
-                        <Form>
+                        <Form onSubmit={this.handleSubmit}>
                             <FormGroup>
                                 <Label for="name">Name</Label>
                                 <Input type="text" name="name" id="name" value={item.name || ''}
@@ -114,7 +107,7 @@ class FindDoctor extends Component {
 
                             <FormGroup  >
                                 <div id="confirm">
-                                    <Button color="primary" type="submit" id="buttons" onClick={this.get}>Submit</Button>{' '}
+                                    <Button color="primary" type="submit" id="buttons">Submit</Button>{' '}
                                     <Button color="secondary" tag={Link} to="/" id="buttons">Cancel</Button>
                                 </div>
                             </FormGroup>

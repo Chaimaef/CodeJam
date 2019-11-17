@@ -27,7 +27,7 @@ public class CodeJamApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CodeJamApplication.class, args);
 
-		//List<Symptom> symptoms = SymptomsList.getSymptomsList();
+		List<Symptom> symptoms = SymptomsList.getSymptomsList();
 		FindDoctor fd = new FindDoctor();
 //		List<Doctor> doctors = fd.getDoctors("pediatrician", "ca-berkeley");
 //		System.out.println(doctors.get(0).getClinicName());
