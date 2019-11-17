@@ -27,11 +27,13 @@ public class VerdictController {
 		List <Verdict> verdicts = vg.giveVerdict(symptoms);
 		List<String> test = new ArrayList<>();
 		for(Verdict v : verdicts) {
+			String issue = "Name: " + (String) v.getIssue().get("Name");
+			test.add(issue);
 			String description = v.getDescription();
 			List<HashMap<String, Object>> specialisations = v.getSpecialisations();
 			for (HashMap<String, Object> s :specialisations ) {
 				test.add((String) s.get("Name"));
-			}
+			}			
 			test.add(description);
 		}
 

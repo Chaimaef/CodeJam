@@ -61,7 +61,7 @@ class DisplayDiagnosis extends Component {
                                 diagnosis.map(symtpom =>
 
                                     <div class = "marginized">
-                                        {symtpom.length > 20 ?
+                                        {symtpom.length > 50 ?
                                             (<div>
                                                 <p>{symtpom}</p>
                                                 <p></p>
