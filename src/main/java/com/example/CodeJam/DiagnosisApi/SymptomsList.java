@@ -15,6 +15,7 @@ public class SymptomsList {
     private SymptomsList() {
         RestTemplate restTemplate = new RestTemplate();
         String url = "https://sandbox-healthservice.priaid.ch/symptoms?token=" + Utils.diagnosisKey + "&format=json&language=en-gb";
+
         ResponseEntity<List<Symptom>> response =
                 restTemplate.exchange(url,
                         HttpMethod.GET, null, new ParameterizedTypeReference<List<Symptom>>() {

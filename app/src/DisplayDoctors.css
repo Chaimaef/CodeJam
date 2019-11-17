@@ -1,0 +1,13 @@
+table, th, td {
+    table-layout: fixed;
+    border: 1px solid black;
+  }
+
+  th {
+    text-align: right;
+  }
+
+  td {
+    height: 40px;
+    vertical-align: bottom;
+  }

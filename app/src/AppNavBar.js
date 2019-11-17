@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Collapse, Nav, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
-import { Link } from 'react-router-dom';
+import { Link,  } from 'react-router-dom';
+import App from './App';
 
 class AppNavBar extends Component {
   constructor(props) {
@@ -34,4 +35,4 @@ class AppNavBar extends Component {
   }
 }
 
-export default AppNavBar;
+export default (AppNavBar);

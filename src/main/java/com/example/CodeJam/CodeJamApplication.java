@@ -21,7 +21,7 @@ public class CodeJamApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CodeJamApplication.class, args);
 		SymptomsList.getSymptomsList();
-
+		
 		VerdictGiver vg = new VerdictGiver();
 		List<String> foo = new ArrayList<>();
 		foo.add("Anxiety");
