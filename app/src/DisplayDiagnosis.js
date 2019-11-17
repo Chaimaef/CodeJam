@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, withRouter } from 'react-router-dom';
+import { BrowserRouter as Router, withRouter, Link } from 'react-router-dom';
 import AppNavBar from './AppNavBar';
-import './DisplayDoctors.css';
+import './DisplayDiagnosis.css';
 
 class DisplayDiagnosis extends Component {
 
@@ -12,7 +12,7 @@ class DisplayDiagnosis extends Component {
         };
         this.getDiagnosis = this.getDiagnosis.bind(this);
         var list = this.getDiagnosis(this.props.location.state.id);
-        this.setState({ diagnosis: list});
+        this.setState({ diagnosis: list });
     }
 
 
@@ -28,7 +28,7 @@ class DisplayDiagnosis extends Component {
             .then(response => {
                 //console.log("!!!!!!!!!!!!!"+response);
                 var temp = (response);
-                this.setState({diagnosis : temp});
+                this.setState({ diagnosis: temp });
                 //this.state.diagnosis = response;s
                 //this.render();
                 //console.log(response );
@@ -43,14 +43,12 @@ class DisplayDiagnosis extends Component {
 
     render() {
         const diagnosis = this.state.diagnosis;
-        console.log("RENDER:" +  diagnosis);
+        //console.log("RENDER:" +  diagnosis);
         return (
             <div>
-                <Router>
-                    <div>
-                        <AppNavBar />
-                    </div>
-                </Router>
+                <div>
+                    <AppNavBar />
+                </div>
                 <body>
                     <div>
                         {diagnosis !== null ?
@@ -58,7 +56,16 @@ class DisplayDiagnosis extends Component {
                                 <div>
                                     {symtpom}
                                 </div>
-                            )} </div>)
+                            )}
+                                <div>
+                                    <Link to={{
+                                        pathname: '/find',
+                                        state: { diagnosis: diagnosis }
+                                    }}>
+                                        <button type="button" id="confirmBtn" className="btn btn-secondary btn-lg">Find a doctor for this diagnosis</button></Link>
+                                </div>
+                            </div>
+                            )
                             : (<div>loading...</div>)
                         }
 
