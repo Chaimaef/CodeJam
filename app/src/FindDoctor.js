@@ -15,8 +15,15 @@ class FindDoctor extends Component {
         const diagnosis = this.props.location.state.diagnosis;
 
         var s = (JSON.stringify(diagnosis));
-        s = s.substring(1, s.indexOf(','))
+        console.log("1"+s);
+        s = s.substring(s.indexOf(',')+1, (JSON.stringify(diagnosis)).length)
+        console.log("2"+s);
+        s = s.substring(0,   s.indexOf(','))
+        console.log("3"+s);
         s = s.substring(1, s.length - 1)
+        console.log("4"+s);
+       // console.log(JSON.stringify(diagnosis));
+       // console.log(s);
         if (s.length > 0) {
             this.state = {
                 item: {
@@ -85,7 +92,7 @@ class FindDoctor extends Component {
 
     render() {
         const { item, redirect } = this.state;
-        console.log(item.speciality);
+        //console.log(item.speciality);
         //console.log(item.speciality);
         if (redirect) {
             return <Redirect to={{
