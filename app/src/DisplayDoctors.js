@@ -17,7 +17,7 @@ class DisplayDoctors extends Component {
 
 
     getDoctors(item) {
-       fetch('http://localhost:8080/api/doctors/' + item.speciality + '/' + item.city)
+        fetch('http://localhost:8080/api/doctors/' + item.speciality + '/' + item.city)
             .then(response => response.json())
             .then(response => {
                 this.setState({ doctors: response });
@@ -33,31 +33,29 @@ class DisplayDoctors extends Component {
         //
         return (
             <div>
-                <Router>
-                    <div>
-                        <AppNavBar />
-                    </div>
-                </Router>
+                <div>
+                    <AppNavBar />
+                </div>
                 <body>
                     <div>
 
                         {doctors !== null ?
                             (<table>
                                 <thead>
-                                <tr>
-                                    <th>Clinic name</th>
-                                    <th>Address</th>
-                                    <th>Phone number</th>
-                                </tr>
+                                    <tr>
+                                        <th>Clinic name</th>
+                                        <th>Address</th>
+                                        <th>Phone number</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
-                                {doctors.map(doctor =>
-                                    <tr>
-                                        <td>{doctor.clinicName}</td>
-                                        <td>{doctor.street}</td>
-                                        <td>{doctor.phone}</td>
-                                    </tr>
-                                )}
+                                    {doctors.map(doctor =>
+                                        <tr>
+                                            <td>{doctor.clinicName}</td>
+                                            <td>{doctor.street}</td>
+                                            <td>{doctor.phone}</td>
+                                        </tr>
+                                    )}
                                 </tbody>
                             </table>
                             )

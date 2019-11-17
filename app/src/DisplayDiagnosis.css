@@ -1,0 +1,10 @@
+#confirmBtn{
+    height: 45px;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    margin-left: 60%;
+    margin-right: 25px;
+  }

@@ -11,20 +11,54 @@ class FindDoctor extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            item: {
-                name: '',
-                address: '',
-                city: '',
-                state: '',
-                country: '',
-                postalCode: '',
-                speciality: ''
-            },
-            redirect: false
-        };
+        const diagnosis = this.props.location.state.diagnosis;
+        // this.state = {
+        //     item: {
+        //         name: '',
+        //         address: '',
+        //         city: '',
+        //         state: '',
+        //         country: '',
+        //         postalCode: '',
+        //         speciality: ''
+        //     },
+        //     redirect: false
+        // };
+   
+        var s = (JSON.stringify(diagnosis));
+        s = s.substring(1, s.indexOf(','))
+        s = s.substring(1, s.length - 1)
+        if (s.length > 0) {
+            this.state = {
+                item: {
+                    name: '',
+                    address: '',
+                    city: '',
+                    state: '',
+                    country: '',
+                    postalCode: '',
+                    speciality: s
+                },
+                redirect: false
+            };
+        }
+        else{
+            this.state = {
+                    item: {
+                        name: '',
+                        address: '',
+                        city: '',
+                        state: '',
+                        country: '',
+                        postalCode: '',
+                        speciality: ''
+                    },
+                    redirect: false
+                }; 
+        }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+
     }
 
 
@@ -32,11 +66,9 @@ class FindDoctor extends Component {
     async handleSubmit(event) {
         event.preventDefault();
         const { item } = this.state;
-                this.setState({ item: item, redirect: true })
-           
+        this.setState({ item: item, redirect: true })
+
     }
-
-
 
     handleChange(event) {
         const target = event.target;
@@ -44,28 +76,27 @@ class FindDoctor extends Component {
         const name = target.name;
         let item = { ...this.state.item };
         item[name] = value;
-        this.setState({ item : item, redirect: false});
+        this.setState({ item: item, redirect: false });
     }
 
     render() {
         const { item, redirect } = this.state;
-
+        console.log(item.speciality);
+        //console.log(item.speciality);
         if (redirect) {
             return <Redirect to={{
                 pathname: '/display',
                 state: { id: item }
             }}
             />;
-          }
+        }
 
-          this.state.redirect=false;
+        this.state.redirect = false;
 
 
         return (
             <div>
-                
-                    <AppNavBar />
-                
+                <AppNavBar />
                 <div>
                     <body>
                         <Form onSubmit={this.handleSubmit}>
