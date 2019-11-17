@@ -11,20 +11,9 @@ class FindDoctor extends Component {
 
     constructor(props) {
         super(props);
+        if(this.props.location.state != undefined){
         const diagnosis = this.props.location.state.diagnosis;
-        // this.state = {
-        //     item: {
-        //         name: '',
-        //         address: '',
-        //         city: '',
-        //         state: '',
-        //         country: '',
-        //         postalCode: '',
-        //         speciality: ''
-        //     },
-        //     redirect: false
-        // };
-   
+
         var s = (JSON.stringify(diagnosis));
         s = s.substring(1, s.indexOf(','))
         s = s.substring(1, s.length - 1)
@@ -42,6 +31,21 @@ class FindDoctor extends Component {
                 redirect: false
             };
         }
+        }
+        // this.state = {
+        //     item: {
+        //         name: '',
+        //         address: '',
+        //         city: '',
+        //         state: '',
+        //         country: '',
+        //         postalCode: '',
+        //         speciality: ''
+        //     },
+        //     redirect: false
+        // };
+   
+       
         else{
             this.state = {
                     item: {
