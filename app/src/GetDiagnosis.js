@@ -76,11 +76,11 @@ class GetDiagnosis extends Component {
 
         return (
             <div>
-                <Router>
+                
                     <div>
                         <AppNavBar />
                     </div>
-                </Router>
+             <Form onSubmit={this.handleSubmit}>
                 <div>
                     {symptoms !== null ?
                         (<div> {symptoms.map(symptom =>
@@ -102,6 +102,8 @@ class GetDiagnosis extends Component {
                         <Button color="secondary" tag={Link} to="/" id="buttons">Cancel</Button>
                     </div>
                 </FormGroup>
+
+            </Form>
             </div>
 
         );

@@ -8,27 +8,42 @@ class DisplayDiagnosis extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            diagnosis: null
+            diagnosis: null,
         };
         this.getDiagnosis = this.getDiagnosis.bind(this);
-        const list = this.getDiagnosis(this.props.location.state.id);
-        this.setState({ diagnosis: list });
+        var list = this.getDiagnosis(this.props.location.state.id);
+        this.setState({ diagnosis: list});
     }
 
 
-    getDiagnosis(item) {
-       fetch('http://localhost:8080/api/doctors/' + item.speciality + '/' + item.city)
+    async getDiagnosis(checked) {
+        await fetch('http://localhost:8080/api/verdicts', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(checked),
+        })
             .then(response => response.json())
             .then(response => {
-                this.setState({ diagnosis: response });
+                //console.log("!!!!!!!!!!!!!"+response);
+                var temp = (response);
+                this.setState({diagnosis : temp});
+                //this.state.diagnosis = response;s
+                //this.render();
+                //console.log(response );
+            })
+            .catch(err => {
+                console.log(err);
             })
     }
 
 
+
+
     render() {
         const diagnosis = this.state.diagnosis;
-        console.log(this.state.diagnosis);
-        //
+        console.log("RENDER:" +  diagnosis);
         return (
             <div>
                 <Router>
@@ -38,15 +53,14 @@ class DisplayDiagnosis extends Component {
                 </Router>
                 <body>
                     <div>
-
-                    {diagnosis !== null ?
-                                    ( <div> {diagnosis.map(symtpom =>
-                                        <div>
-                                          {symtpom.Name}
-                                        </div>
-                                      )} </div> )
-                                    : (<div>loading...</div>)
-                                }
+                        {diagnosis !== null ?
+                            (<div> {diagnosis.map(symtpom =>
+                                <div>
+                                    {symtpom}
+                                </div>
+                            )} </div>)
+                            : (<div>loading...</div>)
+                        }
 
                     </div>
 

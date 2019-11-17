@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import FindDoctor from './FindDoctor';
 import GetDiagnosis from './GetDiagnosis';
 import DisplayDoctors from './DisplayDoctors';
-
+import DisplayDiagnosis from './DisplayDiagnosis';
 
 class Home extends Component {
   render() {
@@ -16,6 +16,7 @@ class Home extends Component {
           <Route path='/find' exact={true} component={FindDoctor}/>
           <Route path='/diagnosis' exact={true} component={GetDiagnosis}/>
           <Route path='/display' exact={true} component={DisplayDoctors}/>
+          <Route path='/verdict' exact={true} component={DisplayDiagnosis}/>
         </Switch>
       </Router>
     )

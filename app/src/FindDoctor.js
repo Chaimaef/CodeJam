@@ -63,9 +63,9 @@ class FindDoctor extends Component {
 
         return (
             <div>
-                <Router>
+                
                     <AppNavBar />
-                </Router>
+                
                 <div>
                     <body>
                         <Form onSubmit={this.handleSubmit}>

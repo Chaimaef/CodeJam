@@ -51,7 +51,6 @@ public class VerdictGiver {
         List<Verdict> verdicts = response.getBody();
         for (Verdict v : verdicts) {
             getDescription(v);
-            System.out.println(v.getDescription());
         }
 
         return verdicts;
